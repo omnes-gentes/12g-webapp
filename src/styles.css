@@ -9,7 +9,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-size: 1rem;
 }
 
-.mat-button {
+.mat-mdc-button {
   text-align: left !important;
 }
 
