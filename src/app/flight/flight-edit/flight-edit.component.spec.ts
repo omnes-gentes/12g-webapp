@@ -4,7 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FlightEditComponent } from './flight-edit.component';
 import { FlightService } from '../flight.service';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
 
 describe('FlightEditComponent', () => {
   let component: FlightEditComponent;
