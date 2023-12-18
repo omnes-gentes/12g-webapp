@@ -1,6 +1,6 @@
 {
-  "name": "demo",
-  "version": "0.0.0",
+  "name": "omnes-gentes-webapp",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
