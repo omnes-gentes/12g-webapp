@@ -2,25 +2,25 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { FlightEditComponent } from './flight-edit.component';
-import { FlightService } from '../flight.service';
+import { MissionaryEditComponent } from './missionary-edit.component';
+import { MissionaryService } from '../missionary.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-describe('FlightEditComponent', () => {
-  let component: FlightEditComponent;
-  let fixture: ComponentFixture<FlightEditComponent>;
+describe('MissionaryEditComponent', () => {
+  let component: MissionaryEditComponent;
+  let fixture: ComponentFixture<MissionaryEditComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [FlightEditComponent],
+      declarations: [MissionaryEditComponent],
       imports: [FormsModule, HttpClientTestingModule, RouterTestingModule, MatFormFieldModule],
-      providers: [FlightService]
+      providers: [MissionaryService]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FlightEditComponent);
+    fixture = TestBed.createComponent(MissionaryEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

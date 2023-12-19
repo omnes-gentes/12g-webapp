@@ -29,6 +29,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('mat-toolbar').textContent).toContain('Flight42');
+    expect(compiled.querySelector('mat-toolbar').textContent).toContain('Missionary42');
   }));
 });

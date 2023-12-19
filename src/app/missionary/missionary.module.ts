@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { FlightListComponent } from './flight-list/flight-list.component';
-import { FlightEditComponent } from './flight-edit/flight-edit.component';
-import { FlightService } from './flight.service';
-import { FLIGHT_ROUTES } from './flight.routes';
+import { MissionaryListComponent } from './missionary-list/missionary-list.component';
+import { MissionaryEditComponent } from './missionary-edit/missionary-edit.component';
+import { MissionaryService } from './missionary.service';
+import { FLIGHT_ROUTES } from './missionary.routes';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,10 +28,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatNativeDateModule
   ],
   declarations: [
-    FlightListComponent,
-    FlightEditComponent,
+    MissionaryListComponent,
+    MissionaryEditComponent,
   ],
-  providers: [FlightService],
+  providers: [MissionaryService],
   exports: []
 })
-export class FlightModule { }
+export class MissionaryModule { }

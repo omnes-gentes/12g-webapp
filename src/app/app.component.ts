@@ -4,7 +4,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { delay } from 'rxjs/operators';
 
 @Component({
-  selector: 'flight-app',
+  selector: 'missionary-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

@@ -1,4 +1,4 @@
-export class Flight {
+export class Missionary {
   id!: number;
   from!: string;
   to!: string;

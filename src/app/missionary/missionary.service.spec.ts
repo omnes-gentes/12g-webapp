@@ -1,18 +1,18 @@
 import { TestBed } from '@angular/core/testing';
-import { FlightService } from './flight.service';
+import { MissionaryService } from './missionary.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-describe('FlightService', () => {
-  let service: FlightService;
+describe('MissionaryService', () => {
+  let service: MissionaryService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [FlightService]
+      providers: [MissionaryService]
     });
 
-    service = TestBed.inject(FlightService);
+    service = TestBed.inject(MissionaryService);
     httpMock = TestBed.inject(HttpTestingController);
   });
 

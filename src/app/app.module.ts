@@ -1,4 +1,4 @@
-import { FlightModule } from './flight/flight.module';
+import { MissionaryModule } from './missionary/missionary.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgModule } from '@angular/core';
@@ -22,7 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FlightModule,
+    MissionaryModule,
     RouterModule.forRoot([...APP_ROUTES], {...APP_EXTRA_OPTIONS}),
     BrowserAnimationsModule,
     MatToolbarModule,

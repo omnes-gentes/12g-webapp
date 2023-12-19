@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { FlightService } from '../flight.service';
-import { Flight } from '../flight';
+import { MissionaryService } from '../missionary.service';
+import { Missionary } from '../missionary';
 import { map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 @Component({
-  selector: 'app-flight-edit',
-  templateUrl: './flight-edit.component.html',
+  selector: 'app-missionary-edit',
+  templateUrl: './missionary-edit.component.html',
   styles: [
     // todo: figure out how to make width dynamic
     'form { display: flex; flex-direction: column; min-width: 500px; }',
     'form > * { width: 100% }'
   ]
 })
-export class FlightEditComponent implements OnInit {
+export class MissionaryEditComponent implements OnInit {
   id!: string;
-  flight!: Flight;
+  missionary!: Missionary;
   feedback: any = {};
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private flightService: FlightService) {
+    private missionaryService: MissionaryService) {
   }
 
   ngOnInit() {
@@ -33,12 +33,12 @@ export class FlightEditComponent implements OnInit {
       .pipe(
         map(p => p.id),
         switchMap(id => {
-          if (id === 'new') { return of(new Flight()); }
-          return this.flightService.findById(id);
+          if (id === 'new') { return of(new Missionary()); }
+          return this.missionaryService.findById(id);
         })
       )
-      .subscribe(flight => {
-          this.flight = flight;
+      .subscribe(missionary => {
+          this.missionary = missionary;
           this.feedback = {};
         },
         err => {
@@ -48,12 +48,12 @@ export class FlightEditComponent implements OnInit {
   }
 
   save() {
-    this.flightService.save(this.flight).subscribe(
-      flight => {
-        this.flight = flight;
+    this.missionaryService.save(this.missionary).subscribe(
+      missionary => {
+        this.missionary = missionary;
         this.feedback = {type: 'success', message: 'Save was successful!'};
         setTimeout(() => {
-          this.router.navigate(['/flights']);
+          this.router.navigate(['/missionaries']);
         }, 1000);
       },
       err => {
@@ -63,6 +63,6 @@ export class FlightEditComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/flights']);
+    this.router.navigate(['/missionaries']);
   }
 }

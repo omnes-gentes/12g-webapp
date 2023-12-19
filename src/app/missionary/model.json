@@ -1,8 +1,8 @@
 {
-    "title": "Flight",
-    "entity": "flight",
+    "title": "Missionary",
+    "entity": "missionary",
     "api": {
-      "url": "http://www.angular.at/api/flight"
+      "url": "http://www.angular.at/api/missionary"
     },
     "filter": [
       "from",
