@@ -1,4 +1,3 @@
 export class MissionaryFilter {
-  from = '';
-  to = '';
+  text = '';
 }

@@ -11,7 +11,7 @@ import { Missionary } from '../missionary';
   ]
 })
 export class MissionaryListComponent implements OnInit {
-  displayedColumns = ['id', 'from', 'to', 'date', 'actions'];
+  displayedColumns = ['id', 'name', 'country', 'phone', 'actions'];
   filter = new MissionaryFilter();
   selectedMissionary!: Missionary;
   feedback: any = {};

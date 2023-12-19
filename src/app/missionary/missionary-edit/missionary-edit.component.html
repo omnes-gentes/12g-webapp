@@ -4,7 +4,7 @@
     <li class="breadcrumb-item active">Missionary</li>
   </ol>
 </nav>
-<h2>Missionary Detail</h2>
+<h2>Missionary Information</h2>
 <div *ngIf="feedback.length" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
 <form *ngIf="missionary" #editForm="ngForm" (ngSubmit)="save()">
 
@@ -14,21 +14,57 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>From</mat-label>
-    <input matInput [(ngModel)]="missionary.from" id="from" name="from">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="missionary.name" id="name" name="name">
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>To</mat-label>
-    <input matInput [(ngModel)]="missionary.to" id="to" name="to">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="missionary.email" id="email" name="email">
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Date</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="missionary.date" id="date" name="date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+    <mat-label>Nationality</mat-label>
+    <input matInput [(ngModel)]="missionary.nationality" id="nationality" name="country">
   </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Country</mat-label>
+    <input matInput
+           id="country"
+           name="country"
+           [formControl]="countryControl"
+           [matAutocomplete]="auto"
+           placeholder="Search for a Country"
+    >
+    <mat-autocomplete #auto="matAutocomplete">
+      @for (option of countriesList; track option) {
+        <mat-option [value]="option">{{option}}</mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Whatsapp Number</mat-label>
+    <input matInput [(ngModel)]="missionary.whatsapp" id="whatsapp" name="whatsapp">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Telegram Number</mat-label>
+    <input matInput [(ngModel)]="missionary.telegram" id="telegram" name="telegram">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Other Phone Number</mat-label>
+    <input matInput [(ngModel)]="missionary.phone" id="phone" name="phone">
+  </mat-form-field>
+
+<!--  <mat-form-field>-->
+<!--    <mat-label>Phone</mat-label>-->
+<!--    <input matInput [matDatepicker]="picker" [(ngModel)]="missionary.phone" id="phone" name="phone">-->
+<!--    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--    <mat-datepicker #picker></mat-datepicker>-->
+<!--  </mat-form-field>-->
 
   <div class="button-row" role="group">
     <button type="submit" mat-raised-button color="primary" [disabled]="!editForm.form.valid">Save</button>

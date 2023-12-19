@@ -12,7 +12,7 @@ export class MissionaryService {
   }
 
   findById(id: string): Observable<Missionary> {
-    const url = `http://www.angular.at/api/missionary/${id}`;
+    const url = `https://jsonplaceholder.typicode.com/users/${id}`;
     const params = { 'id': id };
     const headers = new HttpHeaders().set('Accept', 'application/json');
     return this.http.get<Missionary>(url, {params, headers});
@@ -29,13 +29,12 @@ export class MissionaryService {
   }
 
   find(filter: MissionaryFilter): Observable<Missionary[]> {
-    const url = `http://www.angular.at/api/missionary`;
+    const url = `https://jsonplaceholder.typicode.com/users`;
     const headers = new HttpHeaders().set('Accept', 'application/json');
 
-    const params = {
-      'from': filter.from,
-      'to': filter.to,
-    };
+    const params = filter.text ? {
+        name: filter.text
+    } : undefined;
 
     return this.http.get<Missionary[]>(url, {params, headers});
   }
@@ -45,11 +44,11 @@ export class MissionaryService {
     let url = '';
     const headers = new HttpHeaders().set('content-type', 'application/json');
     if (entity.id) {
-      url = `http://www.angular.at/api/missionary/${entity.id.toString()}`;
+      url = `https://jsonplaceholder.typicode.com/users/${entity.id.toString()}`;
       params = new HttpParams().set('ID', entity.id.toString());
       return this.http.put<Missionary>(url, entity, {headers, params});
     } else {
-      url = `http://www.angular.at/api/missionary`;
+      url = `https://jsonplaceholder.typicode.com/users`;
       return this.http.post<Missionary>(url, entity, {headers, params});
     }
   }
@@ -59,7 +58,7 @@ export class MissionaryService {
     let url = '';
     const headers = new HttpHeaders().set('content-type', 'application/json');
     if (entity.id) {
-      url = `http://www.angular.at/api/missionary/${entity.id.toString()}`;
+      url = `https://jsonplaceholder.typicode.com/users/${entity.id.toString()}`;
       params = new HttpParams().set('ID', entity.id.toString());
       return this.http.delete<Missionary>(url, {headers, params});
     }

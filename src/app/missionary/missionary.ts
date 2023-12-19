@@ -1,6 +1,10 @@
 export class Missionary {
   id!: number;
-  from!: string;
-  to!: string;
-  date!: Date;
+  name!: string;
+  email!: string;
+  country!: string;
+  phone!: string;
+  nationality!: string;
+  whatsapp!: string;
+  telegram!: string;
 }

@@ -2,7 +2,7 @@
     "title": "Missionary",
     "entity": "missionary",
     "api": {
-      "url": "http://www.angular.at/api/missionary"
+      "url": "http://www.angular.at/api/flight"
     },
     "filter": [
       "from",

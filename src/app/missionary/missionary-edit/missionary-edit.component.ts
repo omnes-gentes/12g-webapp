@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { MissionaryService } from '../missionary.service';
 import { Missionary } from '../missionary';
 import { map, switchMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import {Observable, of} from 'rxjs';
+import {CountryService} from "../../services/country/country.service";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-missionary-edit',
@@ -16,28 +18,27 @@ import { of } from 'rxjs';
   ]
 })
 export class MissionaryEditComponent implements OnInit {
+  countryControl = new FormControl('');
   id!: string;
   missionary!: Missionary;
   feedback: any = {};
+  countriesList!: string[];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private missionaryService: MissionaryService) {
+    private missionaryService: MissionaryService,
+    private countryService: CountryService) {
   }
 
   ngOnInit() {
-    this
-      .route
-      .params
-      .pipe(
+    this.route.params.pipe(
         map(p => p.id),
         switchMap(id => {
           if (id === 'new') { return of(new Missionary()); }
           return this.missionaryService.findById(id);
         })
-      )
-      .subscribe(missionary => {
+      ).subscribe(missionary => {
           this.missionary = missionary;
           this.feedback = {};
         },
@@ -45,6 +46,14 @@ export class MissionaryEditComponent implements OnInit {
           this.feedback = {type: 'warning', message: 'Error loading'};
         }
       );
+
+    this.countryControl.valueChanges.pipe(map(async (value) => {
+      console.log(value)
+      this.countriesList = await this.countryService.load({name: value || ''})
+      if (this.countriesList?.length === 1) {
+        this.missionary.country = this.countriesList[0];
+      }
+    }));
   }
 
   save() {
